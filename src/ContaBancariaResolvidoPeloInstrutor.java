@@ -25,6 +25,27 @@ public class ContaBancariaResolvidoPeloInstrutor {
         while(opcao != 4 ) {
             System.out.println(menu);
             opcao = leitura.nextInt();
+
+            if (opcao == 1) {
+                System.out.println("O saldo atualizado é: " + saldo);
+            } else if (opcao == 2) {
+                System.out.println("Qual valor que deseja transferir: ");
+                double valor = leitura.nextDouble();
+                if (valor > saldo) {
+                    System.out.println("Não há saldo para realizar transferência");
+                } else {
+                    saldo -= valor;
+                    System.out.println("Novo saldo " + saldo);
+                }
+            } else if (opcao == 3) {
+                System.out.println("Qual o valor recebido: ");
+                double valor = leitura.nextDouble();
+                saldo += valor;
+                System.out.println("Novo saldo " + saldo);
+            } else if (opcao != 4) {
+                System.out.println("Opção inválida");
+            }
+
         }
     }
 }
